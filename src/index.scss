@@ -1,0 +1,229 @@
+$border-color: #7BDAF3;
+$button-color: #9EC862;
+$background-color: #ECFAF5;
+$font-color: #9B9C9C;
+$button-text-color: #FFFFFF;
+$delete-button-color: #ff0000;
+$mark-color: #98def1;
+
+$margin-centering: 0 auto;
+$border-rules: 3px solid $border-color;
+
+body {
+  width: 1200px;
+  margin: $margin-centering;
+}
+
+li {
+  list-style-type: none;
+}
+
+.App {
+  position: relative;
+}
+
+.notes-container {
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  grid-gap: 20px;
+  margin: $margin-centering;
+
+  .note-preview {
+    border: $border-rules {
+      radius: 20px;
+    }
+
+    .note-preview__data {
+      height: 100px;
+      overflow: hidden;
+      font-size: 20px;
+      padding: 20px;
+      text-align: left;
+      color: $font-color;
+    }
+
+    div {
+      display: flex;
+      justify-content: space-around;
+
+      p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 40px;
+        border-radius: 15px;
+        background-color: $button-color;
+        color: $button-text-color;
+        font: {
+          size: 20px;
+          weight: 600;
+        }
+        transition: box-shadow .18s ease;
+
+        &:hover {
+          cursor: pointer;
+          box-shadow: inset 0 0 0 5px darken($button-color, 10%);
+        }
+      }
+    }
+  }
+}
+
+.note {
+  position: absolute;
+  top: 200px;
+  left: 250px;
+  width: 60%;
+  height: 600px;
+  background-color: $background-color;
+  border: $border-rules {
+    radius: 20px;
+  }
+
+  textarea {
+    width: 80%;
+    height: 350px;
+    resize: none;
+    margin: 20px 10%;
+    font-size: 17px;
+    border: $border-rules;
+    padding: 10px;
+
+    &:focus {
+      outline: 0;
+      outline-offset: 0;
+    }
+  }
+
+  .preview {
+    @extend textarea;
+    background-color: white;
+    font-family: monospace;
+    text-align: left;
+
+    mark {
+      background-color: $mark-color;
+    }
+  }
+
+  button {
+    width: 200px;
+    height: 50px;
+    background-color: $button-color;
+    color: $button-text-color;
+    font-size: 15px;
+    border: $border-rules {
+      radius: 10px;
+    }
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: inset 0 0 0 5px darken($button-color, 10%);
+      border: none;
+    }
+  }
+
+  .note-tags {
+    width: 80%;
+    height: 110px;
+    margin: 10px 5%;
+    display: grid;
+    grid-template-rows: repeat(3, 30px);
+    grid-template-columns: repeat(6, 70px);
+    grid-gap: 10px;
+
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: $border-rules {
+        radius: 3px;
+      }
+
+      &:hover {
+        cursor: pointer;
+        box-shadow: inset 0 0 0 5px darken($border-color, 10%);
+        border: none;
+      }
+    }
+  }
+}
+
+.addbutton {
+  position: fixed;
+  bottom: 100px;
+  left: 80%;
+  width: 70px;
+  height: 70px;
+  background-color: $button-color;
+  color: $button-text-color;
+  font: {
+    size: 45px;
+    weight: 600;
+  }
+  border: $border-rules {
+    radius: 35px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: $background-color;
+    color: $button-color;
+  }
+}
+
+.tags {
+  width: 80%;
+  height: auto;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(8, 100px);
+  grid-gap: 10px;
+
+  li {
+    display: flex;
+    align-items: center;
+    border: $border-rules {
+      radius: 10px;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    span {
+      color: $font-color;
+      font-size: 20px;
+
+      &:first-child {
+        display: inline-block;
+        width: 70px;
+        overflow: hidden;
+      }
+
+      &:last-of-type:hover {
+        color: $delete-button-color;
+      }
+    }
+  }
+}
+
+.showall-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 30px;
+  margin: 20px auto;
+  border-radius: 10px;
+  background-color: $button-color;
+  color: $button-text-color;
+  font-size: 20px;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: inset 0 0 0 5px darken($button-color, 10%);
+  }
+}
