@@ -15,7 +15,7 @@ function App() {
   const [sortedNotes, setSortedNotes] = useState([]);
 
   const callBackendAPI = async () => {
-    const response = await fetch('/express_backend');
+    const response = await fetch('https://notes-app-serv.herokuapp.com/express_backend');
     const body = await response.json();
 
     if (response.status !== 200) {
@@ -108,7 +108,7 @@ function App() {
                 },
       body: JSON.stringify(newJson)
     };
-    fetch('/express_backend_delete', requestOptions)
+    fetch('https://notes-app-serv.herokuapp.com/express_backend_delete', requestOptions)
       .then(response => response.json())
       .then(data => {
         setNotesArray(data['notesArray']);
