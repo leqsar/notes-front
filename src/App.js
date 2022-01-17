@@ -15,7 +15,14 @@ function App() {
   const [sortedNotes, setSortedNotes] = useState([]);
 
   const callBackendAPI = async () => {
-    const response = await fetch('https://notes-app-serv.herokuapp.com/express_backend');
+    const response = await fetch('https://notes-app-serv.herokuapp.com/express_backend', {
+      method: "GET",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+      }
+    });
     const body = await response.json();
 
     if (response.status !== 200) {
@@ -105,6 +112,9 @@ function App() {
       method: 'POST',
       headers: {
                 'Content-Type': 'application/json',
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Content-Type",
+                "Access-Control-Allow-Methods": "GET, POST, OPTIONS"
                 },
       body: JSON.stringify(newJson)
     };
